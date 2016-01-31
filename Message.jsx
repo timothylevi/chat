@@ -13,13 +13,20 @@ GlobalMessage = React.createClass({
   },
 
   getInitialState() {
-    // TODO: Consider seconds ago counts as part of state
-    return { messageInput: this.props.message.text };
+    return {
+      messageInput: this.props.message.text,
+      secondsAgo: (new Date - this.props.message.createdAt) / 1000,
+      editedSecondsAgo: this.props.message.updatedAt ? (new Date - this.props.message.updatedAt) / 1000 : 0
+    };
   },
 
   showEditDialog(event) {
+    //TODO: Move cursor to the end of the message?
     event.preventDefault();
-    // TODO: CSS Show/Hide trickery
+
+    document.getElementById(this.props.message._id).classList.toggle("showEditDialog");
+    ReactDOM.findDOMNode(this.refs.messageInput).focus();
+
   },
 
   updateInput(event) {
@@ -40,19 +47,22 @@ GlobalMessage = React.createClass({
         text: messageText
       }
     });
+
+    document.getElementById(this.props.message._id).classList.toggle("showEditDialog");
+    this.setState({
+      editedSecondsAgo: (new Date - this.props.message.updatedAt) / 1000
+    });
   },
 
   render() {
     const user = this.props.message.user;
     const message = this.props.message;
-    const secondsAgo = (new Date - message.createdAt) / 1000;
-    const editedSecondsAgo = (new Date - message.updatedAt) / 1000;
 
     return (
-      <li>
+      <li id={message._id} className="message-cpt">
         <h3>{user.name}</h3>
-        <date>{secondsAgo} seconds ago</date>
-        <aside>{message.edited ? 'Last Edited ' + editedSecondsAgo + ' seconds ago' : ''}</aside>
+        <date>{this.state.secondsAgo} seconds ago</date>
+        <aside>{message.edited ? 'Last Edited ' + this.state.editedSecondsAgo + ' seconds ago' : ''}</aside>
         <p>{message.text}</p>
         <button onClick={this.showEditDialog}>Edit</button>
         <form onSubmit={this.updateMessage}>

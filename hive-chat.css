@@ -123,3 +123,11 @@ header .hide-completed {
     padding-bottom: 5px;
   }
 }
+
+.message-cpt form {
+  display: none;
+}
+
+.message-cpt.showEditDialog form {
+  display: block;
+}

@@ -54,6 +54,10 @@ GlobalMessage = React.createClass({
     });
   },
 
+  deleteMessage(event) {
+    Messages.remove(this.props.message._id);
+  },
+
   render() {
     const user = this.props.message.user;
     const message = this.props.message;
@@ -65,6 +69,7 @@ GlobalMessage = React.createClass({
         <aside>{message.edited ? 'Last Edited ' + this.state.editedSecondsAgo + ' seconds ago' : ''}</aside>
         <p>{message.text}</p>
         <button onClick={this.showEditDialog}>Edit</button>
+        <button onClick={this.deleteMessage}>Delete</button>
         <form onSubmit={this.updateMessage}>
           <input type="text" ref="messageInput" value={this.state.messageInput} onChange={this.updateInput} />
         </form>

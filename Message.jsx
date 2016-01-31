@@ -1,8 +1,6 @@
-// Task component - represents a single todo item
 GlobalMessage = React.createClass({
   propTypes: {
-    // This component gets the task to display through a React prop.
-    // We can use propTypes to indicate it is required
+    // TODO: create a function for friendly 'x time ago' message
     message: React.PropTypes.shape({
       text: React.PropTypes.string.isRequired,
       edited: React.PropTypes.bool.isRequired,

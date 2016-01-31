@@ -9,7 +9,7 @@ App = React.createClass({
 
   renderGlobalMessages() {
     return this.data.messages.map((message) => {
-      return <GlobalMessage key={message._id} user={message.user} text={message.text}/>;
+      return <GlobalMessage key={message._id} message={message} />;
     });
   },
 
@@ -20,10 +20,11 @@ App = React.createClass({
 
     Messages.insert({
       text: messageText,
+      edited: false,
       createdAt: new Date(),
       user: {
         name: "Tim Campbell"
-      }
+      },
     });
 
     ReactDOM.findDOMNode(this.refs.messageInput).value = "";

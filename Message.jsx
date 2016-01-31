@@ -3,12 +3,22 @@ GlobalMessage = React.createClass({
   propTypes: {
     // This component gets the task to display through a React prop.
     // We can use propTypes to indicate it is required
-    text: React.PropTypes.string.isRequired,
-    user: React.PropTypes.object.isRequired
+    message: React.PropTypes.shape({
+      text: React.PropTypes.string.isRequired,
+      edited: React.PropTypes.bool.isRequired,
+      createdAt: React.PropTypes.instanceOf(Date),
+      user: React.PropTypes.shape({
+        name: React.PropTypes.string
+      })
+    })
   },
   render() {
+    const user = this.props.message.user;
+    const message = this.props.message;
+    const secondsAgo = (new Date - message.createdAt) / 1000;
+
     return (
-      <li>{this.props.user.name}: {this.props.text}</li>
+      <li>{user.name} ({secondsAgo} seconds ago{ message.edited ? ' edited' : ''}): {message.text}</li>
     );
   }
 });

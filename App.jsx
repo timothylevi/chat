@@ -13,10 +13,11 @@ App = React.createClass({
     });
   },
 
-  sendMessage(event) {
+  createMessage(event) {
     event.preventDefault();
 
-    var messageText = ReactDOM.findDOMNode(this.refs.messageInput).value.trim();
+    let messageNode = ReactDOM.findDOMNode(this.refs.messageInput);
+    const messageText = messageNode.value.trim();
 
     Messages.insert({
       text: messageText,
@@ -27,7 +28,7 @@ App = React.createClass({
       },
     });
 
-    ReactDOM.findDOMNode(this.refs.messageInput).value = "";
+    messageNode.value = "";
   },
 
   render() {
@@ -41,7 +42,7 @@ App = React.createClass({
           {this.renderGlobalMessages()}
         </ul>
 
-        <form onSubmit={this.sendMessage}>
+        <form onSubmit={this.createMessage}>
           <input type="text" ref="messageInput" placeholder="Type your message" />
         </form>
       </div>

@@ -41,19 +41,13 @@ GlobalMessage = React.createClass({
 
     const messageText = ReactDOM.findDOMNode(this.refs.messageInput).value.trim();
 
-    Messages.update(this.props.message._id, {
-      $set: {
-        edited: true,
-        updatedAt: new Date(),
-        text: messageText
-      }
-    });
+    Meteor.call("updateMessage", this.props.message._id, messageText);
 
     document.getElementById(this.props.message._id).classList.toggle("showEditDialog");
   },
 
   deleteMessage(event) {
-    Messages.remove(this.props.message._id);
+    Meteor.call("deleteMessage", this.props.message._id);
   },
 
   render() {

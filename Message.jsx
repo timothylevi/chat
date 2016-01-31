@@ -17,8 +17,7 @@ GlobalMessage = React.createClass({
   getInitialState() {
     return {
       messageInput: this.props.message.text,
-      secondsAgo: (new Date - this.props.message.createdAt) / 1000,
-      editedSecondsAgo: this.props.message.updatedAt ? (new Date - this.props.message.updatedAt) / 1000 : 0
+      secondsAgo: (new Date - this.props.message.createdAt) / 1000
     };
   },
 
@@ -51,9 +50,6 @@ GlobalMessage = React.createClass({
     });
 
     document.getElementById(this.props.message._id).classList.toggle("showEditDialog");
-    this.setState({
-      editedSecondsAgo: (new Date - this.props.message.updatedAt) / 1000
-    });
   },
 
   deleteMessage(event) {
@@ -68,7 +64,7 @@ GlobalMessage = React.createClass({
       <li id={message._id} className="message-cpt">
         <h3>{user.name}</h3>
         <date>{this.state.secondsAgo} seconds ago</date>
-        <aside>{message.edited ? 'Last Edited ' + this.state.editedSecondsAgo + ' seconds ago' : ''}</aside>
+        <aside>{message.edited ? 'Edited' : ''}</aside>
         <p>{message.text}</p>
         <button onClick={this.showEditDialog}>Edit</button>
         <button onClick={this.deleteMessage}>Delete</button>

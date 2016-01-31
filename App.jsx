@@ -36,6 +36,7 @@ App = React.createClass({
       <div className="container">
         <header>
           <h1>Hive Chat</h1>
+          <AccountsUIWrapper />
         </header>
 
         <ul>

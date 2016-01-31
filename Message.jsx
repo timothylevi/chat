@@ -17,7 +17,7 @@ GlobalMessage = React.createClass({
   getInitialState() {
     return {
       messageInput: this.props.message.text,
-      secondsAgo: (new Date - this.props.message.createdAt) / 1000
+      secondsAgo: Math.floor((new Date - this.props.message.createdAt) / 1000)
     };
   },
 

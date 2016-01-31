@@ -124,10 +124,10 @@ header .hide-completed {
   }
 }
 
-.message-cpt form {
+.message-cpt form input {
   display: none;
 }
 
-.message-cpt.showEditDialog form {
+.message-cpt.showEditDialog form input {
   display: block;
 }

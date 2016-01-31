@@ -51,8 +51,10 @@ GlobalMessage = React.createClass({
   },
 
   render() {
+    // Refactor ownMessage template
     const user = this.props.message.user;
     const message = this.props.message;
+    const ownMessage = message.user.id === Meteor.userId();
 
     return (
       <li id={message._id} className="message-cpt">
@@ -60,11 +62,16 @@ GlobalMessage = React.createClass({
         <date>{this.state.secondsAgo} seconds ago</date>
         <aside>{message.edited ? 'Edited' : ''}</aside>
         <p>{message.text}</p>
-        <button onClick={this.showEditDialog}>Edit</button>
-        <button onClick={this.deleteMessage}>Delete</button>
-        <form onSubmit={this.updateMessage}>
-          <input type="text" ref="messageInput" value={this.state.messageInput} onChange={this.updateInput} />
-        </form>
+        <b>{ ownMessage ? (
+          <section>
+            <button onClick={this.showEditDialog}>Edit</button>
+            <button onClick={this.deleteMessage}>Delete</button>
+
+            <form onSubmit={this.updateMessage}>
+              <input type="text" ref="messageInput" value={this.state.messageInput} onChange={this.updateInput} />
+            </form>
+          </section>
+      ) : '' }</b>
       </li>
     );
   }

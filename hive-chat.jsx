@@ -6,8 +6,18 @@ if (Meteor.isClient) {
     passwordSignupFields: "USERNAME_ONLY"
   });
 
+  Meteor.subscribe("messages");
+
   Meteor.startup(function () {
     ReactDOM.render(<App />, document.getElementById("render-target"));
+  });
+}
+
+if (Meteor.isServer) {
+  // TODO: Only publish public Messages for everyone
+  // Think about implementation
+  Meteor.publish("messages", function() {
+    return Messages.find();
   });
 }
 
@@ -29,10 +39,20 @@ Meteor.methods({
   },
 
   deleteMessage(messageId) {
+    const message = Messages.findOne(messageId);
+    if (message.user.id !== Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+
     Messages.remove(messageId);
   },
 
   updateMessage(messageId, text) {
+    const message = Messages.findOne(messageId);
+    if (message.user.id !== Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+
     Messages.update(messageId, {
       $set: {
         edited: true,

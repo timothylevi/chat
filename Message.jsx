@@ -8,7 +8,7 @@ GlobalMessage = React.createClass({
   },
   render() {
     return (
-      <li>{user.name}: {this.props.task.text}</li>
+      <li>{this.props.user.name}: {this.props.text}</li>
     );
   }
 });

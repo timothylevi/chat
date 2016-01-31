@@ -9,12 +9,24 @@ App = React.createClass({
 
   renderGlobalMessages() {
     return this.data.messages.map((message) => {
-      return <GlobalMessage key={message._id} task={message} />;
+      return <GlobalMessage key={message._id} user={message.user} text={message.text}/>;
     });
   },
 
   sendMessage(event) {
     event.preventDefault();
+
+    var messageText = ReactDOM.findDOMNode(this.refs.messageInput).value.trim();
+
+    Messages.insert({
+      text: messageText,
+      createdAt: new Date(),
+      user: {
+        name: "Tim Campbell"
+      }
+    });
+
+    ReactDOM.findDOMNode(this.refs.messageInput).value = "";
   },
 
   render() {

@@ -1,6 +1,8 @@
 GlobalMessage = React.createClass({
   propTypes: {
     // TODO: create a function for friendly 'x time ago' message
+    // and consider times that don't update when the component re-renders
+    // that may be passing down a time from the parent.
     message: React.PropTypes.shape({
       text: React.PropTypes.string.isRequired,
       edited: React.PropTypes.bool.isRequired,

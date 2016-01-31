@@ -24,8 +24,9 @@ App = React.createClass({
       edited: false,
       createdAt: new Date(),
       user: {
-        name: "Tim Campbell"
-      },
+        id: Meteor.userId(),
+        name: Meteor.user().username
+      }
     });
 
     messageNode.value = "";

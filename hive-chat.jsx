@@ -1,4 +1,5 @@
-Tasks = new Mongo.Collection("tasks");
+// Rooms = new Mongo.Collection("rooms");
+Messages = new Mongo.Collection("messages");
 
 if (Meteor.isClient) {
   // This code is executed on the client only

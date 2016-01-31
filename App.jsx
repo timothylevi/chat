@@ -3,26 +3,34 @@ App = React.createClass({
 
   getMeteorData() {
     return {
-      tasks: Tasks.find({}).fetch()
+      messages: Messages.find({}).fetch()
     }
   },
 
-  renderTasks() {
-    return this.data.tasks.map((task) => {
-      return <Task key={task._id} task={task} />;
+  renderGlobalMessages() {
+    return this.data.messages.map((message) => {
+      return <GlobalMessage key={message._id} task={message} />;
     });
+  },
+
+  sendMessage(event) {
+    event.preventDefault();
   },
 
   render() {
     return (
       <div className="container">
         <header>
-          <h1>Todo List</h1>
+          <h1>Hive Chat</h1>
         </header>
 
         <ul>
-          {this.renderTasks()}
+          {this.renderGlobalMessages()}
         </ul>
+
+        <form onSubmit={this.sendMessage}>
+          <input type="text" ref="messageInput" placeholder="Type your message" />
+        </form>
       </div>
     );
   }

@@ -1,7 +1,16 @@
 Meteor.startup(function () {
-    if (Messages.find().count() === 0) {
-        for( var i = 0; i < 10; i++ ) {
-            Messages.insert({text: "A dummy message"});
-        }
+  Factory.define('message', Messages, {
+    text() {
+      return Fake.sentence();
     }
+  });
+
+  Messages.remove({});
+  const messagesIsEmpty = Messages.find({}).count() === 0;
+
+  if (messagesIsEmpty) {
+    for (let i = 0; i < 10; i++) {
+      Factory.create('message');
+    }
+  }
 });

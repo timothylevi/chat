@@ -1,7 +1,12 @@
 Meteor.startup(function () {
   Factory.define('message', Messages, {
-    text() {
-      return Fake.sentence();
+    text: () => { return Fake.sentence() },
+    createdAt: () => { return new Date() },
+    user: () => {
+      return {
+        username: Fake.user({ fields: ['username'] })['username'],
+        directUrl: "http://www.wikipedia.org"
+      };
     }
   });
 

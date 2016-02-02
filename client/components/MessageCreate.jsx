@@ -1,4 +1,21 @@
 MessageCreate = React.createClass({
+  handleCreateMessage(event) {
+    event.preventDefault();
+
+    const createMessageInputNode = ReactDOM.findDOMNode(this.refs.createMessageInput);
+
+    Messages.insert({
+      text: createMessageInputNode.value.trim(),
+      createdAt: new Date(),
+      user: {
+        username: "timothylevi",
+        directUrl: "http://www.timothylevi.com"
+      }
+    });
+
+    createMessageInputNode.value = "";
+  },
+
   render() {
     return (
       <section className="message-create-section">

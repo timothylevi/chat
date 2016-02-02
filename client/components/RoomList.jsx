@@ -3,11 +3,9 @@ RoomList = React.createClass({
 
   getMeteorData() {
     Meteor.subscribe('allUsernames');
-    Meteor.subscribe('rooms');
 
     return {
       usernames: Meteor.users.find().fetch(),
-      rooms: Rooms.find().fetch()
     };
   },
 

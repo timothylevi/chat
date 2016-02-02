@@ -5,14 +5,16 @@ Message = React.createClass({
         <blockquote className="message">
           <cite className="message-cite">
             <h3 className="message-cite-username">
-              <a className="message-cite-username-link" href="#"
-                title="Chat with User Name directly">
-                User Name:
+              <a className="message-cite-username-link" href={this.props.user.directUrl}
+                title={`Chat with ${this.props.user.username} directly`}>
+                {this.props.user.username}:
               </a>
             </h3>
-            <date className="message-cite-date">However many seconds/minutes/hours/days ago</date>
+            <date className="message-cite-date" title={this.props.createdAt}>
+              {this.props.timeAgo}
+            </date>
           </cite>
-          <p className="message-text">User Message</p>
+          <p className="message-text">{this.props.text}</p>
         </blockquote>
       </li>
     );

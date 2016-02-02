@@ -7,9 +7,7 @@ Header = React.createClass({
           title="About the Hive Chat project">
           About
         </a>
-        <form className="user-form">
-          <AccountsUIWrapper />
-        </form>
+        { this.props.hasUser ? <AccountsUIWrapper /> : ''}
       </header>
     );
   }

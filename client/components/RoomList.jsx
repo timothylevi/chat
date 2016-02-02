@@ -4,16 +4,15 @@ RoomList = React.createClass({
   getMeteorData() {
     Meteor.subscribe('allUsernames');
 
-    return {
-      usernames: Meteor.users.find().fetch(),
-    };
+    return { usernames: Meteor.users.find().fetch() };
   },
 
   render() {
-    let rooms = [<Room key="global" username="global" scope="global" />];
+    let rooms = [];
     this.data.usernames.forEach((user) => {
       rooms.push(<Room key={user._id} {...user} scope="direct" />);
     });
+    if (Meteor.userId()) rooms.unshift(<Room key="global" username="global" scope="global" />);
 
     return (
       <section className="room-list-section">

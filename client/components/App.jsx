@@ -3,7 +3,6 @@ App = React.createClass({
     return (
       <div>
         <Header />
-        <User />
         <RoomList />
         <MessageCreate />
         <MessageList />

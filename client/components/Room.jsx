@@ -5,7 +5,7 @@ Room = React.createClass({
 
     return (
       <li className="room-item">
-        <a className={`room-item-link ${activeClassName}`} href={`/rooms/${room}`}
+        <a className={`room-item-link ${activeClassName}`} href={`/rooms/${this.props.name}`}
           title={this.props.name}>
          {this.props.name}
         </a>

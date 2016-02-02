@@ -1,6 +1,6 @@
 if (Meteor.isClient) {
   Accounts.ui.config({
-    passwordSignupFields: "USERNAME_AND_EMAIL"
+    passwordSignupFields: "USERNAME_ONLY"
   });
 
   Meteor.startup(function () {

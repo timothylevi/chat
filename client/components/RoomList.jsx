@@ -12,12 +12,9 @@ RoomList = React.createClass({
   },
 
   render() {
-    const rooms = this.data.rooms.map((room) => {
-      return <Room key={room._id} {...room} />;
-    });
-
-    const usernames = this.data.usernames.map((user) => {
-      return <li key={user._id}>{user.username}</li>;
+    let rooms = [<Room key="global" username="global" scope="global" />];
+    this.data.usernames.forEach((user) => {
+      rooms.push(<Room key={user._id} {...user} scope="direct" />);
     });
 
     return (
@@ -28,7 +25,6 @@ RoomList = React.createClass({
           placeholder="Search rooms" />
         <button className="room-list-clear-search">Clear search</button>
         <ul className="room-list-items">{rooms}</ul>
-        <ul>{usernames}</ul>
       </section>
     );
   }

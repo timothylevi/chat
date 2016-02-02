@@ -1,5 +1,7 @@
-Meteor.publish('messages', (room) => {
-  return Messages.find({ room });
+Meteor.publish('messages', (room, otherUserId) => {
+  const ownUserId = this.userId;
+
+  return Messages.find();
 });
 
 Meteor.publish('allUsernames', () => {

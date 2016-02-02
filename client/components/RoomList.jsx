@@ -1,4 +1,14 @@
 RoomList = React.createClass({
+  mixins: [ReactMeteorData],
+
+  getMeteorData() {
+    Meteor.subscribe('allUsernames');
+
+    return {
+      usernames: Meteor.users.find().fetch()
+    };
+  },
+
   getInitialState() {
     const rooms = [
       {
@@ -21,6 +31,10 @@ RoomList = React.createClass({
       return <Room key={room._id} {...room} />;
     });
 
+    const usernames = this.data.usernames.map((user) => {
+      return <li key={user._id}>{user.username}</li>;
+    });
+
     return (
       <section className="room-list-section">
         <h2 className="room-list-title">Room List and Search</h2>
@@ -29,6 +43,7 @@ RoomList = React.createClass({
           placeholder="Search rooms" />
         <button className="room-list-clear-search">Clear search</button>
         <ul className="room-list-items">{rooms}</ul>
+        <ul>{usernames}</ul>
       </section>
     );
   }

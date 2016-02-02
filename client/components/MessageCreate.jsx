@@ -8,7 +8,7 @@ MessageCreate = React.createClass({
       text: createMessageInputNode.value.trim(),
       createdAt: new Date(),
       user: {
-        username: "timothylevi",
+        username: Meteor.user().username,
         directUrl: "http://www.timothylevi.com"
       }
     });

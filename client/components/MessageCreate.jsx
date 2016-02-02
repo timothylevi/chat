@@ -3,15 +3,9 @@ MessageCreate = React.createClass({
     event.preventDefault();
 
     const createMessageInputNode = ReactDOM.findDOMNode(this.refs.createMessageInput);
+    const message = {text: createMessageInputNode.value.trim()};
 
-    Messages.insert({
-      text: createMessageInputNode.value.trim(),
-      createdAt: new Date(),
-      user: {
-        username: Meteor.user().username,
-        directUrl: "http://www.timothylevi.com"
-      }
-    });
+    Meteor.call('createMessage', message);
 
     createMessageInputNode.value = "";
   },

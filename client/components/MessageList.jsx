@@ -1,12 +1,14 @@
 MessageList = React.createClass({
-  getInitialState() {
-    const messages = Messages.find({});
+  mixins: [ReactMeteorData],
 
-    return { messages };
+  getMeteorData() {
+    return {
+      messages: Messages.find({}, {sort: {createdAt: -1}}).fetch()
+    };
   },
 
   render() {
-    const messages = this.state.messages.map((message) => {
+    const messages = this.data.messages.map((message) => {
       message.timeAgo = DateHelper.time_ago_in_words(message.createdAt);
 
       return <Message key={message._id} {...message} />;

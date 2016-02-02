@@ -5,3 +5,7 @@ Meteor.publish('messages', () => {
 Meteor.publish('allUsernames', () => {
   return Meteor.users.find({}, {fields: {username: 1}});
 });
+
+Meteor.publish('rooms', () => {
+  return Rooms.find({});
+});

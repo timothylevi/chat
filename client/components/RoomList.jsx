@@ -3,31 +3,16 @@ RoomList = React.createClass({
 
   getMeteorData() {
     Meteor.subscribe('allUsernames');
+    Meteor.subscribe('rooms');
 
     return {
-      usernames: Meteor.users.find().fetch()
+      usernames: Meteor.users.find().fetch(),
+      rooms: Rooms.find().fetch()
     };
   },
 
-  getInitialState() {
-    const rooms = [
-      {
-        _id: "1",
-        url: "http://yahoo.com",
-        otherUser: "username2"
-      },
-      {
-        _id: "2",
-        url: "http://yahoo.com",
-        otherUser: "username3"
-      }
-    ];
-
-    return { rooms };
-  },
-
   render() {
-    const rooms = this.state.rooms.map((room) => {
+    const rooms = this.data.rooms.map((room) => {
       return <Room key={room._id} {...room} />;
     });
 

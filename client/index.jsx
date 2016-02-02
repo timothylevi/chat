@@ -1,10 +1,8 @@
-if (Meteor.isClient) {
-  Accounts.ui.config({
-    passwordSignupFields: "USERNAME_ONLY"
-  });
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});
 
-  Meteor.startup(function () {
-    ReactDOM.render(<App />, document.getElementById("render-target"));
-    Session.set('room', 'global');
-  });
-}
+Meteor.startup(function () {
+  ReactDOM.render(<App />, document.getElementById("render-target"));
+  Session.set('room', 'global');
+});

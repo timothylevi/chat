@@ -21,3 +21,6 @@ insecure                # Allow all DB writes from clients (for prototyping)
 react
 anti:fake
 dburles:factory
+accounts-base
+accounts-password
+accounts-ui-unstyled

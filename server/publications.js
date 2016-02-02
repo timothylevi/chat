@@ -1,7 +1,14 @@
-Meteor.publish('messages', (room, otherUserId) => {
-  const ownUserId = this.userId;
+Meteor.publish('messages', (room, ownUserId, otherUserId) => {
+  const inGlobalChat = room === 'global' && otherUserId === null;
 
-  return Messages.find();
+  if (inGlobalChat) return Messages.find({ room });
+
+  return Messages.find({
+    $or: [
+      { room, toUser: ownUserId, "user._id": otherUserId },
+      { room, toUser: otherUserId, "user._id": ownUserId }
+    ]
+  });
 });
 
 Meteor.publish('allUsernames', () => {

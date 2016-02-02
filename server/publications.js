@@ -3,7 +3,5 @@ Meteor.publish('messages', () => {
 });
 
 Meteor.publish('allUsernames', () => {
-  return Meteor.users.find({}, {fields: {
-    username: 1
-  }});
+  return Meteor.users.find({}, {fields: {username: 1}});
 });

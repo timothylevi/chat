@@ -1,3 +1,3 @@
 Login = React.createClass({
-  render() { return <AccountsUIWrapper />; }
+  render() { return (<div>Log in page</div>); }
 });

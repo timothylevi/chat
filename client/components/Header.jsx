@@ -7,7 +7,7 @@ Header = React.createClass({
           title="About the Hive Chat project">
           About
         </a>
-        { this.props.hasUser ? <AccountsUIWrapper /> : ''}
+        <AccountsUIWrapper />
       </header>
     );
   }

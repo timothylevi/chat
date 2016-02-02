@@ -1,13 +1,6 @@
 // Source: https://gist.github.com/deadkarma/1989808. Thanks, deadkarma!
 
 DateHelper = {
-  // Takes the format of "Jan 15, 2007 15:45:00 GMT" and converts it to a relative time
-  // Ruby strftime: %b %d, %Y %H:%M:%S GMT
-  time_ago_in_words_with_parsing: function(from) {
-    var date = new Date;
-    date.setTime(Date.parse(from));
-    return this.time_ago_in_words(date);
-  },
   // Takes a timestamp and converts it to a relative time
   // DateHelper.time_ago_in_words(1331079503000)
   time_ago_in_words: function(from) {

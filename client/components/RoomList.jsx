@@ -8,6 +8,7 @@ RoomList = React.createClass({
   },
 
   render() {
+    // TODO: Refactor
     let rooms = [];
     this.data.usernames.forEach((user) => {
       rooms.push(<Room key={user._id} {...user} scope="direct" />);

@@ -1,25 +1,6 @@
 MessageList = React.createClass({
   getInitialState() {
-    const messages = [
-      {
-        _id: "1",
-        text: "First message!",
-        createdAt: new Date(),
-        user: {
-          username: "username",
-          directUrl: "http://google.com"
-        }
-      },
-      {
-        _id: "2",
-        text: "Second message!",
-        createdAt: new Date() - 1000000,
-        user: {
-          username: "username",
-          directUrl: "http://google.com"
-        }
-      }
-    ];
+    const messages = Messages.find({});
 
     return { messages };
   },

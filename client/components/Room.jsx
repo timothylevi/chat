@@ -1,11 +1,17 @@
 Room = React.createClass({
   render() {
     const room = Session.get('room');
-    const href = this.props.scope === 'global' ? "/" : `/messages/${this.props._id}`;
+    const userPath = `/messages/${this.props._id}`;
+    const path = this.props.scope === 'global' ? "/" : userPath;
+
+    const isActiveDirect = FlowRouter.current().path === userPath;
+    const isActiveGlobal = this.props.scope === 'global' && FlowRouter.current().path === '/';
+    const isActive = isActiveDirect || isActiveGlobal;
+    const activeClass = isActive ? 'active-room' : '';
 
     return (
       <li className="room-item">
-        <a className={`room-item-link`} href={href}
+        <a className={`room-item-link ${activeClass}`} href={path}
           title={this.props.username}>
          {this.props.username}
         </a>

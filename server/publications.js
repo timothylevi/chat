@@ -1,5 +1,5 @@
-Meteor.publish('messages', () => {
-  return Messages.find({});
+Meteor.publish('messages', (room) => {
+  return Messages.find({ room });
 });
 
 Meteor.publish('allUsernames', () => {

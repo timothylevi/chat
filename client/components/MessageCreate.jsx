@@ -3,7 +3,10 @@ MessageCreate = React.createClass({
     event.preventDefault();
 
     const createMessageInputNode = ReactDOM.findDOMNode(this.refs.createMessageInput);
-    const message = {text: createMessageInputNode.value.trim()};
+    const message = {
+      text: createMessageInputNode.value.trim(),
+      room: Session.get('room')
+    };
 
     Meteor.call('createMessage', message);
 

@@ -1,7 +1,8 @@
-Meteor.startup(function () {
+Meteor.startup(function seedMessages() {
   Factory.define('message', Messages, {
     text: () => { return Fake.sentence() },
     createdAt: () => { return new Date() },
+    room: 'global',
     user: () => {
       return {
         username: Fake.user({ fields: ['username'] })['username'],
@@ -18,4 +19,9 @@ Meteor.startup(function () {
       Factory.create('message');
     }
   }
+});
+
+Meteor.startup(function seedRooms() {
+  Rooms.remove({});
+  Rooms.insert({ name: "global" });
 });

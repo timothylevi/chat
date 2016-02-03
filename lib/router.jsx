@@ -9,7 +9,6 @@ const indexRoute = {
   path: '/',
   action(params, queryParams) {
     Session.set('room', 'global');
-    Session.set('userId', null);
     Session.set('username', null);
     ReactLayout.render(App, { yield: <Index /> });
   }

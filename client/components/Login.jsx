@@ -1,3 +1,4 @@
+// To become an informational page
 Login = React.createClass({
-  render() { return (<div>Log in page</div>); }
+  render() { return (<div />); }
 });

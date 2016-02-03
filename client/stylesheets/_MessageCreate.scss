@@ -1,0 +1,17 @@
+.message-create-section {
+  font-size: 1.5rem;
+  padding: 1rem;
+  background-color: $white;
+
+  .message-create-form {
+    .message-create-title { font-size: 0; }
+    .message-create-input {
+      border: 0;
+      margin: 0;
+      vertical-align: top;
+      display: inline-block;
+      background-color: transparent;
+      width: 100%;
+    }
+  }
+}

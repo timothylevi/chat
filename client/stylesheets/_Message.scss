@@ -1,0 +1,36 @@
+.message-list-item {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: $lightblue;
+
+  .message {
+    margin: 0;
+
+    .message-cite {}
+    .message-username {
+      margin: 0;
+      font-style: normal;
+      font-size: inherit;
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 1rem;
+      color: $darkgreen;
+    }
+    .message-username-link {
+      text-decoration: none;
+      color: black;
+    }
+    .message-date {
+      color: $background;
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: top;
+      font-style: normal;
+    }
+    .message-text {
+      margin: 0;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}

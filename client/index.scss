@@ -1,0 +1,19 @@
+@import "{}/client/stylesheets/imports/_normalize.scss";
+@import "{}/client/stylesheets/imports/_variables.scss";
+
+@import "{}/client/stylesheets/_Header.scss";
+@import "{}/client/stylesheets/_AccountsUIWrapper.scss";
+@import "{}/client/stylesheets/_RoomList.scss";
+@import "{}/client/stylesheets/_Room.scss";
+@import "{}/client/stylesheets/_MessageCreate.scss";
+@import "{}/client/stylesheets/_MessageList.scss";
+@import "{}/client/stylesheets/_Message.scss";
+@import "{}/client/stylesheets/_Login.scss";
+
+body {
+  background-color: $background;
+  max-width: 600px;
+  margin: auto;
+}
+
+input:focus { outline: none; }

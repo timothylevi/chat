@@ -18,15 +18,6 @@ RoomList = React.createClass({
     this.setState({ searchString: searchString });
   },
 
-  handleClearSearch(event) {
-    event.preventDefault();
-
-    const searchRoomsInput = ReactDOM.findDOMNode(this.refs.searchRoomsInput);
-    searchRoomsInput.value = '';
-    searchRoomsInput.focus();
-    this.setState({ searchString: '' });
-  },
-
   render() {
     const currentUser = Meteor.user();
     let filteredUsers = this.data.usernames.filter((user) => {
@@ -48,12 +39,9 @@ RoomList = React.createClass({
         <h2 className="room-list-title">Room List and Search</h2>
         <input className="room-list-search"
           type="text"
-          placeholder="Search rooms"
+          placeholder="Type here to filter rooms"
           onChange={this.handleSearchRooms}
           ref="searchRoomsInput"/>
-        <button className="room-list-clear-search" onClick={this.handleClearSearch}>
-          Clear search
-        </button>
         <ul className="room-list-items">{rooms}</ul>
       </section>
     );

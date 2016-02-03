@@ -1,0 +1,23 @@
+.room-list-section {
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: $mediumgreen;
+
+  .room-list-title { font-size: 0; }
+  .room-list-search {
+    border: 0;
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    background-color: transparent;
+    color: $white;
+  }
+  .room-list-items {
+    margin: 0;
+    padding: 0;
+    overflow-x:scroll;
+    white-space: nowrap;
+    display: block;
+    vertical-align: top;
+  }
+}

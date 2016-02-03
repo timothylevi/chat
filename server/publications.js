@@ -1,5 +1,8 @@
 Meteor.publish('messages', function(room, otherUsername) {
-  const inGlobalChat = room === 'global' && otherUsername === null;
+  check(room, String);
+  check(otherUsername, String);
+
+  const inGlobalChat = room === 'global' && otherUsername === '';
   const currentUsername = Meteor.users.findOne(this.userId).username;
 
   if (!this.userId) return this.ready();

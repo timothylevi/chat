@@ -1,10 +1,3 @@
-const loginRoute = {
-  path: '/login',
-  action(params, queryParams) {
-    ReactLayout.render(App, { yield: <Login /> });
-  }
-}
-
 const indexRoute = {
   path: '/',
   action(params, queryParams) {
@@ -33,7 +26,6 @@ const messagesRoute = {
 const publicRoutes = FlowRouter.group({ name: 'public' });
 const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
 
-publicRoutes.route( loginRoute.path, { action: loginRoute.action });
 publicRoutes.route( aboutRoute.path, { action: aboutRoute.action });
 authenticatedRoutes.route(indexRoute.path, { action: indexRoute.action });
 authenticatedRoutes.route(messagesRoute.path, { action: messagesRoute.action });

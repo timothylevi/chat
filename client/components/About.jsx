@@ -1,6 +1,6 @@
 About = React.createClass({
   render() {
-    const signInMessage = !Meteor.userId() ? (
+    const signInMessage = (
       <aside className="sign-in-message">
         <h2>Welcome!</h2>
         <p>🙌</p>
@@ -9,27 +9,19 @@ About = React.createClass({
           account and log in to the chat application. Have fun!
         </p>
       </aside>
-    ) : '';
+    );
 
     return (
       <section className="about-section">
         <div className="about-section-container">
-          {signInMessage}
+          {!Meteor.userId() ? signInMessage : ''}
           <h2>About Hive Chat</h2>
           <nav>
             <ul>
-              <li>
-                <a href="#summary">Summary</a>
-              </li>
-              <li>
-                <a href="#features">Features</a>
-              </li>
-              <li>
-                <a href="#improvements">Improvements</a>
-              </li>
-              <li>
-                <a href="#components">Components</a>
-              </li>
+              <li><a href="#summary">Summary</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#improvements">Improvements</a></li>
+              <li><a href="#components">Components</a></li>
             </ul>
           </nav>
 
@@ -86,13 +78,6 @@ About = React.createClass({
               <p>
                 The current component! This is mostly hard-coded HTML to document
                 some features of this project in lieu of traditional commenting.
-              </p>
-            </li>
-            <li>
-              <h4><code>Login</code></h4>
-              <p>
-                Wraps the <code>About</code> component. Users can log in using the
-                dialog in the header of the page.
               </p>
             </li>
             <li>

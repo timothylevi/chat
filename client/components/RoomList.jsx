@@ -40,7 +40,7 @@ RoomList = React.createClass({
     });
     if (Meteor.userId()) rooms.unshift([
       <Room key="global" username="global" scope="global" />,
-      <Room key="self" {...currentUser} scope="direct" username="self" />
+      <Room key="self" {...currentUser} scope="direct" />
     ]);
 
     return (

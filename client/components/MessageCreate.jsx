@@ -20,8 +20,12 @@ MessageCreate = React.createClass({
         <form className="message-create-form" onSubmit={this.handleCreateMessage}>
           <h2 className="message-create-title">Create Message</h2>
           <input className="message-create-input" type="text"
-            placeholder="Type message here and press `Enter`"
+            placeholder="Type message here"
             ref="createMessageInput" />
+          <a className="message-create-submit" title="Send message"
+            onClick={this.handleCreateMessage}>
+            Send message
+          </a>
         </form>
       </section>
     );

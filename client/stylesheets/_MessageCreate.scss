@@ -1,17 +1,32 @@
 .message-create-section {
-  font-size: 1.5rem;
-  padding: 1rem;
-  background-color: $white;
 
   .message-create-form {
     .message-create-title { font-size: 0; }
     .message-create-input {
+      font-size: 1.5rem;
+      padding: 1rem;
+      background-color: $white;
       border: 0;
       margin: 0;
-      vertical-align: top;
-      display: inline-block;
-      background-color: transparent;
+      display: block;
+      box-sizing: border-box;
       width: 100%;
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+    }
+    .message-create-submit {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: bold;
+      background-color: $darkblue;
+      border-bottom: 5px solid $darkgreen;
+      color: $white;
+      padding: 0.5rem 1rem;
+      text-align: right;
+      display: block;
+      cursor: pointer;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
     }
   }
 }

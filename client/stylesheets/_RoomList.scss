@@ -1,23 +1,33 @@
 .room-list-section {
   font-size: 1rem;
-  padding: 1rem;
-  background-color: $mediumgreen;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
 
   .room-list-title { font-size: 0; }
   .room-list-search {
+    padding: 1rem;
     border: 0;
     margin: 0;
     vertical-align: top;
-    display: inline-block;
-    background-color: transparent;
-    color: $white;
+    display: block;
+    background-color: $lightgreen;
+    color: $darkgreen;
+    width: 100%;
+    box-sizing: border-box;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
   }
   .room-list-items {
+    padding: 0.5rem 1rem;
     margin: 0;
-    padding: 0;
     overflow-x:scroll;
     white-space: nowrap;
     display: block;
     vertical-align: top;
+    background-color: $mediumgreen;
+    border-bottom: 2.5px solid $darkgreen;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
   }
 }

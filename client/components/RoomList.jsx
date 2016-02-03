@@ -21,10 +21,10 @@ RoomList = React.createClass({
   render() {
     const currentUser = Meteor.user();
     let filteredUsers = this.data.usernames.filter((user) => {
-      return user.username.includes(this.state.searchString) && user.username !== currentUser.username;
+      return user.username.toLowerCase().includes(this.state.searchString.toLowerCase()) && user.username !== currentUser.username;
     });
     let sortedUsers = filteredUsers.sort((a, b) => {
-      return a.username > b.username;
+      return a.username.toLowerCase() > b.username.toLowerCase();
     });
     let rooms = sortedUsers.map((user) => {
       return <Room key={user.username} {...user} scope="direct" />;

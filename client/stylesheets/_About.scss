@@ -1,0 +1,25 @@
+.about-section {
+  .about-section-container {
+    padding: 1rem 2rem;
+    background-image:  -webkit-linear-gradient(left, rgba(255,85,91, 0.6), rgba(255,85,91, 0.6)), -webkit-linear-gradient(top, white 0px, white 69px, rgba(255,255,255,0) 70px), -webkit-repeating-linear-gradient(white 0px, white 18px, #A6FFED 19px, white 20px);
+    background-image:  -moz-linear-gradient(left, rgba(255,85,91, 0.6), rgba(255,85,91, 0.6)), -moz-linear-gradient(top, white 0px, white 69px, rgba(255,255,255,0) 70px), -moz-repeating-linear-gradient(white 0px, white 18px, #A6FFED 19px, white 20px);
+    background-image:  -ms-linear-gradient(left, rgba(255,85,91, 0.6), rgba(255,85,91, 0.6)), -ms-linear-gradient(top, white 0px, white 69px, rgba(255,255,255,0) 70px), -ms-repeating-linear-gradient(white 0px, white 18px, #A6FFED 19px, white 20px);
+    background-image:  -o-linear-gradient(left, rgba(255,85,91, 0.6), rgba(255,85,91, 0.6)), -o-linear-gradient(top, white 0px, white 69px, rgba(255,255,255,0) 70px), -o-repeating-linear-gradient(white 0px, white 18px, #A6FFED 19px, white 20px);
+    background-image:  linear-gradient(left, rgba(255,85,91, 0.6), rgba(255,85,91, 0.6)), linear-gradient(top, white 0px, white 69px, rgba(255,255,255,0) 70px), repeating-linear-gradient(white 0px, white 18px, #A6FFED 19px, white 20px);
+    background-size: 1px, auto, auto 20px;
+    background-repeat: repeat-y, no-repeat, repeat;
+    background-position: 1rem 0px, 0px 0px, 0px 0px;
+  }
+
+  &:after {
+    content: "End of about";
+    display: block;
+    text-align: center;
+    padding: 1rem;
+    background: $background;
+    font-family: serif;
+    font-style: italic;
+    border-top: 1px solid #aaa;
+    color: #aaa;
+  }
+}

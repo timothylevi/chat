@@ -3,9 +3,9 @@ Header = React.createClass({
     return (
       <header className="site-header">
         <h1 className="site-header-title">
-          <a href="/">Hive Chat</a>
+          <a href="/" title="Go to global room">Hive Chat</a>
         </h1>
-        <a className="site-header-about-link" href=""
+        <a className="site-header-about-link" href="/about"
           title="About the Hive Chat project">
           About
         </a>

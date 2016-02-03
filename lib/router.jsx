@@ -14,19 +14,16 @@ const indexRoute = {
   }
 };
 
-const selfRoute = {
-  path: '/self',
+const aboutRoute = {
+  path: '/about',
   action(params, queryParams) {
-    Session.set('room', 'direct');
-    Session.set('username', Meteor.user().username);
-    ReactLayout.render(App, { yield: <Index /> });
+    ReactLayout.render(App, { yield: <About /> });
   }
 }
 
 const messagesRoute = {
   path: '/messages/:username',
   action(params, queryParams) {
-    if (Meteor.user().username === params.username) FlowRouter.go('/self');
     Session.set('room', 'direct');
     Session.set('username', params.username);
     ReactLayout.render(App, { yield: <Index /> });
@@ -37,6 +34,6 @@ const publicRoutes = FlowRouter.group({ name: 'public' });
 const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
 
 publicRoutes.route( loginRoute.path, { action: loginRoute.action });
+publicRoutes.route( aboutRoute.path, { action: aboutRoute.action });
 authenticatedRoutes.route(indexRoute.path, { action: indexRoute.action });
-authenticatedRoutes.route(selfRoute.path, { action: selfRoute.action });
 authenticatedRoutes.route(messagesRoute.path, { action: messagesRoute.action });

@@ -6,7 +6,7 @@ App = React.createClass({
       loggingIn: Meteor.loggingIn(),
       hasUser: !!Meteor.user(),
       isPublic(route) {
-        let publicRoutes = ['login'];
+        let publicRoutes = ['login', 'about'];
         return publicRoutes.includes(route);
       },
       canView() {

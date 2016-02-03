@@ -15,8 +15,8 @@
       font-style: normal;
       font-size: inherit;
       display: inline-block;
-      vertical-align: top;
-      margin-right: 1rem;
+      vertical-align: baseline;
+      margin-right: 0.5rem;
       color: $darkgreen;
     }
     .message-username-link {
@@ -24,16 +24,17 @@
       color: black;
     }
     .message-date {
-      color: $background;
+      margin-top: 0.25rem;
+      font-size: 0.75rem;
+      color: $white;
       margin-right: 1rem;
-      display: inline-block;
-      vertical-align: top;
-      font-style: normal;
+      display: block;
     }
     .message-text {
       margin: 0;
       display: inline-block;
-      vertical-align: top;
+      vertical-align: baseline;
+      color: $darkgreen;
     }
   }
 }

@@ -1,17 +1,46 @@
 About = React.createClass({
   render() {
+    const signInMessage = !Meteor.userId() ? (
+      <aside className="sign-in-message">
+        <h2>Welcome!</h2>
+        <p>🙌</p>
+        <p>
+          You made it! Click <strong>sign in</strong> above to create a new
+          account and log in to the chat application. Have fun!
+        </p>
+      </aside>
+    ) : '';
+
     return (
       <section className="about-section">
         <div className="about-section-container">
+          {signInMessage}
           <h2>About Hive Chat</h2>
+          <nav>
+            <ul>
+              <li>
+                <a href="#summary">Summary</a>
+              </li>
+              <li>
+                <a href="#features">Features</a>
+              </li>
+              <li>
+                <a href="#improvements">Improvements</a>
+              </li>
+              <li>
+                <a href="#components">Components</a>
+              </li>
+            </ul>
+          </nav>
 
-          <h3>Summary</h3>
+          <h3 id="summary">Summary</h3>
           <p>
             This website was built as a sample company chat app using Meteor and
-            React.
+            React. The project uses Meteor best practices, considering security
+            and performance.
           </p>
 
-          <h3>Features</h3>
+          <h3 id="features">Features</h3>
           <ul>
             <li>User registration and log in</li>
             <li>Global room for all employees</li>
@@ -19,7 +48,15 @@ About = React.createClass({
             <li>Private chat room for notes with onboarding</li>
           </ul>
 
-          <h3>Components</h3>
+          <h3 id="improvements">Improvements</h3>
+          <p>
+            List of future improvements to the site would include a more flexible
+            room model (which is only virtual now), pagination of messages,
+            testing, load testing and scalability, and a more comprehensive style
+            guide.
+          </p>
+
+          <h3 id="components">Components</h3>
           <ul>
             <li>
               <h4><code>App</code></h4>

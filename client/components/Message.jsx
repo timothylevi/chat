@@ -11,11 +11,11 @@ Message = React.createClass({
                 {this.props.fromUsername}
               </a>
             </h3>
-            <date className="message-date" title={this.props.createdAt}>
-              {this.props.timeAgo}
-            </date>
           </cite>
           <p className="message-text">{this.props.text}</p>
+          <date className="message-date" title={this.props.createdAt}>
+            {this.props.timeAgo}
+          </date>
         </blockquote>
       </li>
     );

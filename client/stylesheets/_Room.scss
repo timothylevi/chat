@@ -5,6 +5,9 @@
   .room-item-link {
     text-decoration: none;
     color: $background;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.75rem;
   }
   .room-item-link:hover {
     color: $white;

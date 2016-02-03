@@ -31,7 +31,10 @@ RoomList = React.createClass({
     let filteredUsers = this.data.usernames.filter((user) => {
       return user.username.includes(this.state.searchString);
     });
-    let rooms = filteredUsers.map((user) => {
+    let sortedUsers = filteredUsers.sort((a, b) => {
+      return a.username > b.username;
+    });
+    let rooms = sortedUsers.map((user) => {
       return <Room key={user.username} {...user} scope="direct" />;
     });
     if (Meteor.userId()) rooms.unshift(<Room key="global" username="global" scope="global" />);

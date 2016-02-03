@@ -1,3 +1,5 @@
+BrowserPolicy.content.disallowInlineScripts();
+
 Accounts.onCreateUser((options, user) => {
   const username = user.username;
   const messageTexts = [

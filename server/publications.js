@@ -6,8 +6,8 @@ Meteor.publish('messages', function(room, otherUsername) {
   if (inGlobalChat) return Messages.find({ room });
   return Messages.find({
     $or: [
-      { room, toUsername: currentUsername, "user.username": otherUsername },
-      { room, toUsername: otherUsername, "user.username": currentUsername }
+      { room, toUsername: currentUsername, fromUsername: otherUsername },
+      { room, toUsername: otherUsername, fromUsername: currentUsername }
     ]
   });
 });

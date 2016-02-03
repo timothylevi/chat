@@ -15,11 +15,8 @@ Accounts.onCreateUser((options, user) => {
       text: text,
       room: 'direct',
       toUsername: username,
-      createdAt: new Date(),
-      user: {
-        username: username,
-        directUrl: "/messages/" + username
-      }
+      fromUsername: username,
+      createdAt: new Date()
     });
   });
 

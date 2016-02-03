@@ -5,9 +5,10 @@ Message = React.createClass({
         <blockquote className="message">
           <cite className="message-cite">
             <h3 className="message-cite-username">
-              <a className="message-cite-username-link" href={this.props.user.directUrl}
-                title={`Chat with ${this.props.user.username} directly`}>
-                {this.props.user.username}:
+              <a className="message-cite-username-link"
+                href={`/messages/${this.props.fromUsername}`}
+                title={`Chat with ${this.props.fromUsername} directly`}>
+                {this.props.fromUsername}:
               </a>
             </h3>
             <date className="message-cite-date" title={this.props.createdAt}>

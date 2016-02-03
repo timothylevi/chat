@@ -1,4 +1,8 @@
-BrowserPolicy.content.disallowInlineScripts();
+Meteor.startup(function () {
+  BrowserPolicy.content.disallowInlineScripts();
+
+  Messages._ensureIndex({ "room": 1, "toUserName": 1, "fromUsername": 1});
+});
 
 Accounts.onCreateUser((options, user) => {
   const username = user.username;

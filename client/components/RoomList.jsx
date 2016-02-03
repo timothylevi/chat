@@ -28,8 +28,9 @@ RoomList = React.createClass({
   },
 
   render() {
+    const currentUser = Meteor.user();
     let filteredUsers = this.data.usernames.filter((user) => {
-      return user.username.includes(this.state.searchString);
+      return user.username.includes(this.state.searchString) && user.username !== currentUser.username;
     });
     let sortedUsers = filteredUsers.sort((a, b) => {
       return a.username > b.username;
@@ -37,7 +38,10 @@ RoomList = React.createClass({
     let rooms = sortedUsers.map((user) => {
       return <Room key={user.username} {...user} scope="direct" />;
     });
-    if (Meteor.userId()) rooms.unshift(<Room key="global" username="global" scope="global" />);
+    if (Meteor.userId()) rooms.unshift([
+      <Room key="global" username="global" scope="global" />,
+      <Room key="self" {...currentUser} scope="direct" username="self" />
+    ]);
 
     return (
       <section className="room-list-section">

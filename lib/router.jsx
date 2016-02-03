@@ -10,15 +10,16 @@ const indexRoute = {
   action(params, queryParams) {
     Session.set('room', 'global');
     Session.set('userId', null);
+    Session.set('username', null);
     ReactLayout.render(App, { yield: <Index /> });
   }
 };
 
-const directMessageShowRoute = {
-  path: '/messages/:userId',
+const messagesRoute = {
+  path: '/messages/:username',
   action(params, queryParams) {
     Session.set('room', 'direct');
-    Session.set('userId', params.userId);
+    Session.set('username', params.username);
     ReactLayout.render(App, { yield: <Index /> });
   }
 };
@@ -28,4 +29,4 @@ const authenticatedRoutes = FlowRouter.group({ name: 'authenticated' });
 
 publicRoutes.route( loginRoute.path, { action: loginRoute.action });
 authenticatedRoutes.route(indexRoute.path, { action: indexRoute.action });
-authenticatedRoutes.route(directMessageShowRoute.path, { action: directMessageShowRoute.action });
+authenticatedRoutes.route(messagesRoute.path, { action: messagesRoute.action });

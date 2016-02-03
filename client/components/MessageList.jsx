@@ -2,7 +2,7 @@ MessageList = React.createClass({
   mixins: [ReactMeteorData],
 
   getMeteorData() {
-    Meteor.subscribe('messages', Session.get('room'), Session.get('userId'));
+    Meteor.subscribe('messages', Session.get('room'), Session.get('username'));
 
     return { messages: Messages.find({}, {sort: {createdAt: -1}}).fetch() };
   },

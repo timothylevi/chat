@@ -11,7 +11,7 @@ RoomList = React.createClass({
     // TODO: Refactor
     let rooms = [];
     this.data.usernames.forEach((user) => {
-      rooms.push(<Room key={user._id} {...user} scope="direct" />);
+      rooms.push(<Room key={user.username} {...user} scope="direct" />);
     });
     if (Meteor.userId()) rooms.unshift(<Room key="global" username="global" scope="global" />);
 

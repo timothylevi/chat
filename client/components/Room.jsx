@@ -1,7 +1,7 @@
 Room = React.createClass({
   render() {
     const room = Session.get('room');
-    const userPath = `/messages/${this.props._id}`;
+    const userPath = `/messages/${this.props.username}`;
     const path = this.props.scope === 'global' ? "/" : userPath;
 
     const isActiveDirect = FlowRouter.current().path === userPath;

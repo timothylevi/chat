@@ -1,12 +1,13 @@
-Meteor.publish('messages', function(room, otherUserId) {
-  const inGlobalChat = room === 'global' && otherUserId === null;
+Meteor.publish('messages', function(room, otherUsername) {
+  const inGlobalChat = room === 'global' && otherUsername === null;
+  const currentUsername = Meteor.users.findOne(this.userId).username;
 
   if (!this.userId) return this.ready();
   if (inGlobalChat) return Messages.find({ room });
   return Messages.find({
     $or: [
-      { room, toUser: this.userId, "user._id": otherUserId },
-      { room, toUser: otherUserId, "user._id": this.userId }
+      { room, toUsername: currentUsername, "user.username": otherUsername },
+      { room, toUsername: otherUsername, "user.username": currentUsername }
     ]
   });
 });
